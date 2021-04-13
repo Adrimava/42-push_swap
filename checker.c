@@ -41,13 +41,26 @@ void	print_list(t_stack *lst)
 	}
 }
 
+int	list_size(t_stack *lst)
+{
+	int	size;
+
+	size = 0;
+	while (lst)
+	{
+		lst = lst->next;
+		size++;
+	}
+	return (size);
+}
+
 int		all_numbers_and_spaces(char *str)
 {
 	while (*str)
 	{
 		if (!((*str >= '0' && *str <= '9') || *str == ' '))
 			return (0);
-		*str++;
+		str++;
 	}
 	return (1);	
 }
@@ -56,6 +69,11 @@ int		param_validator(char *str)
 {
 	if (!all_numbers_and_spaces(str))
 		return (0);
+	/**
+	 * TODO: concat params.
+	 * TODO: repeated_numbers.
+	 * TODO: bigger than int.
+	 */
 	return (1);
 }
 
@@ -79,13 +97,31 @@ t_stack	*stack_init(int size,  char **params)
 	return (first_number);
 }
 
+void	sa_sb(t_stack **stack)
+{
+	t_stack	*tmp;
+
+	if (list_size(*stack) > 1)
+	{
+		tmp = *stack;
+		*stack = (*stack)->next;
+		tmp->next = (*stack)->next;
+		(*stack)->next = tmp;
+	}
+}
+
+void	checker(t_stack *a)
+{
+	print_list(a);				////Just for testing, delete.
+	sa_sb(&a);					////Just for testing, delete.
+	printf("////////\n");		////Just for testing, delete.
+	print_list(a);				////Just for testing, delete.
+}
+
 int		main(int argc, char **argv)
 {
-	t_stack *a;
-
 	if (argc == 1)
 		return (0);
-	a = stack_init(argc - 1, ++argv);
-	print_list(a);
+	checker(stack_init(argc - 1, ++argv));
 }
 
