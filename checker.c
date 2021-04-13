@@ -10,23 +10,41 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int *num_filler(int size,  char **params) {
+#include "checker.h"
+
+t_stack	*new_stack(int content)
+{
+	t_stack	*new_stack;
+
+	if (!(new_stack = (t_stack*)malloc(sizeof(t_stack))))
+		return (NULL);
+	new_stack->number = content;
+	new_stack->next = NULL;
+	return (new_stack);
+}
+
+int		*num_filler(int size,  char **params) {
 	int	*numbers;
+	int i;
 
 	if (!(numbers = (int *)malloc(sizeof(int) * size)))
-		return (0);
+		return (NULL);
+	i = 0;
 	while (*params)
 	{
-		*numbers = atoi(*params++);
-		// printf("output: %d\n", atoi(*params++));
+		numbers[i++] = atoi(*params);
+		new_stack(atoi(*params++));
 	}
+
 	return (numbers);
 }
 
-int main(int argc, char **argv)
+int		main(int argc, char **argv)
 {
+	int *numbers;
+
 	if (argc == 1)
-		return 0;
-	num_filler(argc - 1, ++argv);
+		return (0);
+	numbers = num_filler(argc - 1, ++argv);	
 }
 

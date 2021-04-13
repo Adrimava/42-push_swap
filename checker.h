@@ -14,5 +14,14 @@
 # define CHECKER_H
 
 # include <unistd.h>
+# include <stdio.h>
+# include <stdlib.h>
+
+typedef struct	s_stack
+{
+    int			number;
+    t_stack		*next;
+}				t_stack;
+
 
 #endif
