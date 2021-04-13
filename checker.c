@@ -23,28 +23,69 @@ t_stack	*new_stack(int content)
 	return (new_stack);
 }
 
-int		*num_filler(int size,  char **params) {
-	int	*numbers;
-	int i;
+void	stack_add_to_front(t_stack **alst, t_stack *new)
+{
+	if (!alst || !new)
+		return ;
+	new->next = *alst;
+	*alst = new;
+	return ;
+}
 
-	if (!(numbers = (int *)malloc(sizeof(int) * size)))
-		return (NULL);
-	i = 0;
-	while (*params)
+void	print_list(t_stack *lst)
+{
+	while (lst)
 	{
-		numbers[i++] = atoi(*params);
-		new_stack(atoi(*params++));
+		printf("%d\n", lst->number);
+		lst = lst->next;
 	}
+}
 
-	return (numbers);
+int		all_numbers_and_spaces(char *str)
+{
+	while (*str)
+	{
+		if (!((*str >= '0' && *str <= '9') || *str == ' '))
+			return (0);
+		*str++;
+	}
+	return (1);	
+}
+
+int		param_validator(char *str)
+{
+	if (!all_numbers_and_spaces(str))
+		return (0);
+	return (1);
+}
+
+t_stack	*stack_init(int size,  char **params)
+{
+	t_stack	*first_number;
+	int		i;
+
+	first_number = NULL;
+	i = size;
+	while (--i >= 0)
+	{
+		if (!param_validator(params[i]))
+		{
+			printf("Error\n");
+			return (NULL);
+		}
+		else
+			stack_add_to_front(&first_number, new_stack(atoi(params[i])));
+	}
+	return (first_number);
 }
 
 int		main(int argc, char **argv)
 {
-	int *numbers;
+	t_stack *a;
 
 	if (argc == 1)
 		return (0);
-	numbers = num_filler(argc - 1, ++argv);	
+	a = stack_init(argc - 1, ++argv);
+	print_list(a);
 }
 
