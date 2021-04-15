@@ -12,9 +12,25 @@
 
 #include "checker.h"
 
-int		main(int argc, char **argv)
+int		all_numbers_and_spaces(char *str)
 {
-	if (argc == 1)
+	while (*str)
+	{
+		if (!((*str >= '0' && *str <= '9') || *str == ' '))
+			return (0);
+		str++;
+	}
+	return (1);	
+}
+
+int		param_validator(char *str)
+{
+	if (!all_numbers_and_spaces(str))
 		return (0);
-	checker(stack_init(argc - 1, ++argv));
+	/**
+	 * TODO: concat params.
+	 * TODO: repeated_numbers.
+	 * TODO: bigger than int.
+	 */
+	return (1);
 }
