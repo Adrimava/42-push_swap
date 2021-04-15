@@ -110,12 +110,28 @@ void	sa_sb(t_stack **stack)
 	}
 }
 
+void	pa_pb(t_stack **to_be_taken, t_stack**to_be_added) {
+	t_stack *tmp;
+
+	if (*to_be_taken) {
+		tmp = *to_be_taken;
+		*to_be_taken = (*to_be_taken)->next;
+		stack_add_to_front(to_be_added, tmp);
+	}
+}
+
 void	checker(t_stack *a)
 {
+	t_stack	*b;
+
+	b = NULL;	
 	print_list(a);				////Just for testing, delete.
-	sa_sb(&a);					////Just for testing, delete.
-	printf("////////\n");		////Just for testing, delete.
+	// sa_sb(&a);					////Just for testing, delete.
+	pa_pb(&a, &b);
+	printf("a///////\n");		////Just for testing, delete.
 	print_list(a);				////Just for testing, delete.
+	printf("b///////\n");		////Just for testing, delete.
+	print_list(b);				////Just for testing, delete.
 }
 
 int		main(int argc, char **argv)
