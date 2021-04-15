@@ -54,6 +54,47 @@ int	list_size(t_stack *lst)
 	return (size);
 }
 
+t_stack	*ft_lstlast(t_stack *lst)
+{
+	int		i;
+	t_stack	*aux;
+
+	if (!lst)
+		return (NULL);
+	i = 0;
+	aux = lst;
+	while (aux)
+	{
+		aux = aux->next;
+		i++;
+	}
+	if (i == 0)
+		return (lst);
+	while (lst && i > 1)
+	{
+		lst = lst->next;
+		i--;
+	}
+	return (lst);
+}
+
+void	ft_lstadd_back(t_stack **alst, t_stack *new)
+{
+	t_stack *aux;
+
+	aux = ft_lstlast(*alst);
+	if (new && alst)
+	{
+		if (*alst == NULL)
+			*alst = new;
+		else
+		{
+			aux->next = new;
+			new->next = NULL;
+		}
+	}
+}
+
 int		all_numbers_and_spaces(char *str)
 {
 	while (*str)
@@ -113,10 +154,22 @@ void	sa_sb(t_stack **stack)
 void	pa_pb(t_stack **to_be_taken, t_stack**to_be_added) {
 	t_stack *tmp;
 
-	if (*to_be_taken) {
+	if (*to_be_taken)
+	{
 		tmp = *to_be_taken;
 		*to_be_taken = (*to_be_taken)->next;
 		stack_add_to_front(to_be_added, tmp);
+	}
+}
+
+void	ra_rb(t_stack **stack) {
+	t_stack	*tmp;
+
+	if (*stack) 
+	{
+		tmp = *stack;
+		*stack = (*stack)->next;
+		ft_lstadd_back(stack, tmp);
 	}
 }
 
@@ -124,10 +177,14 @@ void	checker(t_stack *a)
 {
 	t_stack	*b;
 
-	b = NULL;	
+	b = NULL;
+	printf("a//\n");			////Just for testing, delete.
 	print_list(a);				////Just for testing, delete.
-	// sa_sb(&a);					////Just for testing, delete.
-	pa_pb(&a, &b);
+	printf("b//\n");			////Just for testing, delete.
+	print_list(b);				////Just for testing, delete.
+	// sa_sb(&a);				////Just for testing, delete.
+	// pa_pb(&a, &b);			////Just for testing, delete.
+	// ra_rb(&a);				////Just for testing, delete.
 	printf("a///////\n");		////Just for testing, delete.
 	print_list(a);				////Just for testing, delete.
 	printf("b///////\n");		////Just for testing, delete.
