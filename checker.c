@@ -173,6 +173,23 @@ void	ra_rb(t_stack **stack) {
 	}
 }
 
+void	rra_rrb(t_stack **stack) {
+	t_stack	*last;
+	t_stack *aux;
+
+	if (*stack && list_size(*stack) > 1) 
+	{
+		last = ft_lstlast(*stack);
+		aux = *stack;
+		while (aux->next != last)
+		{
+			aux = aux->next;
+		}
+		aux->next = NULL;
+		stack_add_to_front(stack, last);
+	}
+}
+
 void	checker(t_stack *a)
 {
 	t_stack	*b;
@@ -183,8 +200,9 @@ void	checker(t_stack *a)
 	printf("b//\n");			////Just for testing, delete.
 	print_list(b);				////Just for testing, delete.
 	// sa_sb(&a);				////Just for testing, delete.
-	// pa_pb(&a, &b);			////Just for testing, delete.
+	 pa_pb(&a, &b);			////Just for testing, delete.
 	// ra_rb(&a);				////Just for testing, delete.
+	rra_rrb(&b);				////Just for testing, delete.
 	printf("a///////\n");		////Just for testing, delete.
 	print_list(a);				////Just for testing, delete.
 	printf("b///////\n");		////Just for testing, delete.
