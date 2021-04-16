@@ -6,7 +6,7 @@
 /*   By: amaza-va <amaza-va@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 17:59:11 by amaza-va          #+#    #+#             */
-/*   Updated: 2021/04/16 16:49:48 by amaza-va         ###   ########.fr       */
+/*   Updated: 2021/04/16 17:25:37 by amaza-va         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,14 +45,14 @@ int		no_repeated_numbers(char **arr)
 int		negative_numbers_validation(char **arr)
 {
 	int		i;
-	char	*minus_position;
+	char	*minus_pos;
 	
 	i = 0;
 	while (i < str_array_length(arr))
 	{
-		if ((minus_position = ft_strrchr(arr[i], '-')))
+		if ((minus_pos = ft_strrchr(arr[i], '-')))
 		{
-			if (!(*(minus_position + 1) >= '0' && *(minus_position + 1) <= '9'))
+			if (!(*(minus_pos + 1) >= '0' && *(minus_pos + 1) <= '9'))
 				return (0);
 		}
 		i++;

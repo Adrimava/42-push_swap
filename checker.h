@@ -6,7 +6,7 @@
 /*   By: amaza-va <amaza-va@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 18:17:36 by amaza-va          #+#    #+#             */
-/*   Updated: 2021/04/16 16:49:28 by amaza-va         ###   ########.fr       */
+/*   Updated: 2021/04/16 17:34:29 by amaza-va         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ void	rra_rrb(t_stack **stack);
 void	checker(t_stack *a);
 
 int     str_array_length(char **arr);
+void	free_array(char **arr);
+
 char	*ft_strjoin(char const *s1, char const *s2);
 size_t	ft_strlen(const char *str);
 char	**ft_split(char const *s, char c);
