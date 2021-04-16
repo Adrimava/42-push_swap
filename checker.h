@@ -6,7 +6,7 @@
 /*   By: amaza-va <amaza-va@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 18:17:36 by amaza-va          #+#    #+#             */
-/*   Updated: 2021/04/16 19:53:18 by amaza-va         ###   ########.fr       */
+/*   Updated: 2021/04/16 20:39:49 by amaza-va         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ typedef struct		s_stack
 	struct s_stack	*next;
 }					t_stack;
 
+void	checker_user_input(t_stack **a, t_stack **b);
 t_stack	*new_stack(int content);
 void	stack_add_to_front(t_stack **alst, t_stack *new);
 void	print_list(t_stack *lst);
