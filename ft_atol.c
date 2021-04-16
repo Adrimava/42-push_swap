@@ -1,32 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcmp.c                                        :+:      :+:    :+:   */
+/*   ft_atol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: amaza-va <amaza-va@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/11/05 11:32:20 by amaza-va          #+#    #+#             */
-/*   Updated: 2021/04/16 16:07:36 by amaza-va         ###   ########.fr       */
+/*   Created: 2019/11/05 16:03:02 by amaza-va          #+#    #+#             */
+/*   Updated: 2021/04/16 15:48:57 by amaza-va         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
 
-int	ft_strcmp(const char *s1, const char *s2)
+long    ft_atol(const char *str)
 {
-	unsigned int	i;
-	int				num;
+	long i;
+	long neg;
+	long num;
 
-	num = 0;
 	i = 0;
-	while ((s1[i] != '\0') && (s2[i] != '\0') && (num == 0))
+	neg = 1;
+	num = 0;
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
+		i++;
+	if (str[i] == '+' || str[i] == '-')
 	{
-		num += (unsigned char)s1[i] - (unsigned char)s2[i];
+		if (str[i] == '-')
+			neg = -1;
 		i++;
 	}
-	if (num == 0)
+	while (str[i] >= '0' && str[i] <= '9')
 	{
-		num = (unsigned char)s1[i] - (unsigned char)s2[i];
+		num = num * 10 + str[i] - '0';
+		i++;
 	}
-	return (num);
+	return (num * neg);
 }

@@ -6,7 +6,7 @@
 /*   By: amaza-va <amaza-va@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 18:17:36 by amaza-va          #+#    #+#             */
-/*   Updated: 2021/04/16 14:58:01 by amaza-va         ###   ########.fr       */
+/*   Updated: 2021/04/16 15:55:58 by amaza-va         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,9 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <stdlib.h>
+
+#define INT_MAX 2147483647
+#define INT_MIN -2147483648
 
 typedef struct		s_stack
 {
@@ -44,5 +47,6 @@ char	**ft_split(char const *s, char c);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 int     ft_strcmp(const char *s1, const char *s2);
 char	*ft_strrchr(const char *s, int c);
+long    ft_atol(const char *str);
 
 #endif

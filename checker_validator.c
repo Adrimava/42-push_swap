@@ -6,7 +6,7 @@
 /*   By: amaza-va <amaza-va@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 17:59:11 by amaza-va          #+#    #+#             */
-/*   Updated: 2021/04/16 15:41:43 by amaza-va         ###   ########.fr       */
+/*   Updated: 2021/04/16 16:04:07 by amaza-va         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,22 @@ int		negative_numbers_validation(char **arr)
 	return (1);
 }
 
+int		fit_in_int(char **arr)
+{
+	int		i;
+	long	tmp;
+
+	i = 0;
+	while (i < array_length(arr))
+	{
+		tmp = ft_atol(arr[i]);
+		if (tmp > INT_MAX || tmp < INT_MIN)
+			return (0);
+		i++;
+	}
+	return (1);	
+}
+
 int		param_validator(char *str)
 {
 	char	**params_split;
@@ -81,8 +97,7 @@ int		param_validator(char *str)
 		return (0);
 	if (!negative_numbers_validation(params_split))
 		return (0);
-	/**
-	 * TODO: bigger than int.
-	 */
+	if (!fit_in_int(params_split))
+		return (0);
 	return (1);
 }
