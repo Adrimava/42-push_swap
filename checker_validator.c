@@ -6,21 +6,11 @@
 /*   By: amaza-va <amaza-va@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 17:59:11 by amaza-va          #+#    #+#             */
-/*   Updated: 2021/04/16 16:04:07 by amaza-va         ###   ########.fr       */
+/*   Updated: 2021/04/16 16:49:48 by amaza-va         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "checker.h"
-
-int		array_length(char **arr)
-{
-	int	length;
-
-	length = 0;
-	while (arr[length])
-		length++;
-	return (length);
-}
 
 int		all_numbers_and_spaces_and_minus(char *str)
 {
@@ -39,10 +29,10 @@ int		no_repeated_numbers(char **arr)
 	int	j;
 	
 	i = 0;
-	while (i < array_length(arr) - 1)
+	while (i < str_array_length(arr) - 1)
 	{
 		j = i;
-		while (++j < array_length(arr))
+		while (++j < str_array_length(arr))
 		{
 			if (!ft_strcmp(arr[i], arr[j]))
 				return (0);
@@ -58,7 +48,7 @@ int		negative_numbers_validation(char **arr)
 	char	*minus_position;
 	
 	i = 0;
-	while (i < array_length(arr))
+	while (i < str_array_length(arr))
 	{
 		if ((minus_position = ft_strrchr(arr[i], '-')))
 		{
@@ -76,7 +66,7 @@ int		fit_in_int(char **arr)
 	long	tmp;
 
 	i = 0;
-	while (i < array_length(arr))
+	while (i < str_array_length(arr))
 	{
 		tmp = ft_atol(arr[i]);
 		if (tmp > INT_MAX || tmp < INT_MIN)
@@ -86,18 +76,18 @@ int		fit_in_int(char **arr)
 	return (1);	
 }
 
-int		param_validator(char *str)
+char	**param_validator(char *str)
 {
 	char	**params_split;
 
 	if (!all_numbers_and_spaces_and_minus(str))
-		return (0);
+		return (NULL);
 	params_split = ft_split(str, ' ');
 	if (!no_repeated_numbers(params_split))
-		return (0);
+		return (NULL);
 	if (!negative_numbers_validation(params_split))
-		return (0);
+		return (NULL);
 	if (!fit_in_int(params_split))
-		return (0);
-	return (1);
+		return (NULL);
+	return (params_split);
 }
