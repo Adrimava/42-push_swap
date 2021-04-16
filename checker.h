@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   checker.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: amaza-va <amaza-va@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/04/12 18:17:36 by marvin            #+#    #+#             */
-/*   Updated: 2021/04/12 18:17:36 by marvin           ###   ########.fr       */
+/*   Created: 2021/04/12 18:17:36 by amaza-va          #+#    #+#             */
+/*   Updated: 2021/04/16 14:58:01 by amaza-va         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,6 @@ size_t	ft_strlen(const char *str);
 char	**ft_split(char const *s, char c);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 int     ft_strcmp(const char *s1, const char *s2);
+char	*ft_strrchr(const char *s, int c);
 
 #endif
