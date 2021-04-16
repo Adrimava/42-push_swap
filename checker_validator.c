@@ -6,7 +6,7 @@
 /*   By: amaza-va <amaza-va@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 17:59:11 by amaza-va          #+#    #+#             */
-/*   Updated: 2021/04/16 17:25:37 by amaza-va         ###   ########.fr       */
+/*   Updated: 2021/04/16 19:26:53 by amaza-va         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int		negative_numbers_validation(char **arr)
 	i = 0;
 	while (i < str_array_length(arr))
 	{
-		if ((minus_pos = ft_strrchr(arr[i], '-')))
+		if ((minus_pos = ft_strchr(arr[i], '-')))
 		{
 			if (!(*(minus_pos + 1) >= '0' && *(minus_pos + 1) <= '9'))
 				return (0);

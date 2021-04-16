@@ -6,7 +6,7 @@
 /*   By: amaza-va <amaza-va@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 18:17:36 by amaza-va          #+#    #+#             */
-/*   Updated: 2021/04/16 17:34:29 by amaza-va         ###   ########.fr       */
+/*   Updated: 2021/04/16 19:53:18 by amaza-va         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@
 
 typedef struct		s_stack
 {
-    int				number;
-    struct s_stack	*next;
+	int				number;
+	struct s_stack	*next;
 }					t_stack;
 
 t_stack	*new_stack(int content);
@@ -44,13 +44,17 @@ void	checker(t_stack *a);
 int     str_array_length(char **arr);
 void	free_array(char **arr);
 
+int		get_next_line(int fd, char **line);
+
 char	*ft_strjoin(char const *s1, char const *s2);
 size_t	ft_strlen(const char *str);
 char	**ft_split(char const *s, char c);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 int     ft_strcmp(const char *s1, const char *s2);
-char	*ft_strrchr(const char *s, int c);
+char	*ft_strchr(const char *s, int c);
 long    ft_atol(const char *str);
 int     ft_atoi(const char *str);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*ft_strdup(const char *s1);
 
 #endif

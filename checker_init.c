@@ -6,7 +6,7 @@
 /*   By: amaza-va <amaza-va@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 17:59:11 by amaza-va          #+#    #+#             */
-/*   Updated: 2021/04/16 17:36:40 by amaza-va         ###   ########.fr       */
+/*   Updated: 2021/04/16 19:54:16 by amaza-va         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,11 +64,26 @@ t_stack	*stack_init(int size,  char **params)
 	return (stack_filler(numbers_arr, &stack));
 }
 
+void	checker_user_input(t_stack *a, t_stack *b)
+{
+	char	*instructions;
+
+	printf("Please, write the instructions:\n");
+	while (get_next_line(0, &instructions) > 0) {
+		printf("&&%s&&\n", instructions);
+		if(!ft_strcmp(instructions, ""))
+			break;
+		free(instructions);
+	}
+	free(instructions);
+}
+
 void	checker(t_stack *a)
 {
 	t_stack	*b;
 
 	b = NULL;
+	checker_user_input(a, b);
 	printf("a//\n");			////Just for testing, delete.
 	print_list(a);				////Just for testing, delete.
 	printf("b//\n");			////Just for testing, delete.
@@ -81,4 +96,8 @@ void	checker(t_stack *a)
 	// print_list(a);				////Just for testing, delete.
 	// printf("b///////\n");		////Just for testing, delete.
 	// print_list(b);				////Just for testing, delete.
+	
+	/**
+	*	TODO: free every node of stack a and stack b.
+	*/
 }
