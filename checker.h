@@ -38,4 +38,10 @@ void	ra_rb(t_stack **stack);
 void	rra_rrb(t_stack **stack);
 void	checker(t_stack *a);
 
+char	*ft_strjoin(char const *s1, char const *s2);
+size_t	ft_strlen(const char *str);
+char	**ft_split(char const *s, char c);
+size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
+int     ft_strcmp(const char *s1, const char *s2);
+
 #endif

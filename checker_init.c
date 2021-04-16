@@ -15,20 +15,30 @@
 t_stack	*stack_init(int size,  char **params)
 {
 	t_stack	*first_number;
+	char	*tmp;
+	char	*tmp2;
+	char	*params_str;
 	int		i;
 
 	first_number = NULL;
+	params_str = ft_strjoin(params[0], " ");;
+	i = 0;
+	while (++i < size)
+	{
+		tmp = ft_strjoin(params[i], " ");
+		tmp2 = params_str;
+		params_str = ft_strjoin(params_str, tmp);
+		free(tmp);
+		free(tmp2);
+	}
+	if (!param_validator(params_str))
+	{
+		printf("Error\n");
+		return (NULL);
+	}
 	i = size;
 	while (--i >= 0)
-	{
-		if (!param_validator(params[i]))
-		{
-			printf("Error\n");
-			return (NULL);
-		}
-		else
-			stack_add_to_front(&first_number, new_stack(atoi(params[i])));
-	}
+		stack_add_to_front(&first_number, new_stack(atoi(params[i])));
 	return (first_number);
 }
 
