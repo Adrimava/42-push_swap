@@ -6,7 +6,7 @@
 /*   By: amaza-va <amaza-va@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 18:17:36 by amaza-va          #+#    #+#             */
-/*   Updated: 2021/04/16 20:39:49 by amaza-va         ###   ########.fr       */
+/*   Updated: 2021/04/16 21:50:38 by amaza-va         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,8 @@ void	pa_pb(t_stack **to_be_taken, t_stack**to_be_added);
 void	ra_rb(t_stack **stack);
 void	rra_rrb(t_stack **stack);
 void	checker(t_stack *a);
+void	result(t_stack **a, t_stack **b);
+void	free_list(t_stack **stack);
 
 int     str_array_length(char **arr);
 void	free_array(char **arr);

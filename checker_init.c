@@ -6,7 +6,7 @@
 /*   By: amaza-va <amaza-va@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 17:59:11 by amaza-va          #+#    #+#             */
-/*   Updated: 2021/04/16 21:06:44 by amaza-va         ###   ########.fr       */
+/*   Updated: 2021/04/16 21:50:22 by amaza-va         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,12 +72,8 @@ void	checker(t_stack *a)
 	if (a)
 	{
 		checker_user_input(&a, &b);
-		printf("a//\n");			////Just for testing, delete.
-		print_list(a);				////Just for testing, delete.
-		printf("b//\n");			////Just for testing, delete.
-		print_list(b);				////Just for testing, delete.		
+		result(&a, &b);
+		free_list(&a);
+		free_list(&b);
 	}
-	/**
-	*	TODO: free every node of stack a and stack b.
-	*/
 }
