@@ -6,7 +6,7 @@
 /*   By: amaza-va <amaza-va@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 19:56:52 by amaza-va          #+#    #+#             */
-/*   Updated: 2021/04/16 21:13:25 by amaza-va         ###   ########.fr       */
+/*   Updated: 2021/04/17 21:52:10 by amaza-va         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void    intructions_parser2(char *instruction ,t_stack **a, t_stack **b)
         rra_rrb(b);		
 	}
     else
-        printf("Error\n");	
+        printf("Error\nPlease, write a valid instruction.\n");
 }
 
 

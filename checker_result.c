@@ -6,7 +6,7 @@
 /*   By: amaza-va <amaza-va@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/16 21:31:35 by amaza-va          #+#    #+#             */
-/*   Updated: 2021/04/16 21:51:42 by amaza-va         ###   ########.fr       */
+/*   Updated: 2021/04/17 21:54:07 by amaza-va         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,14 @@
 void	free_list(t_stack **stack)
 {
 	t_stack	*tmp;
-	t_stack *tmp2;
 	int		i;
 
-	tmp = *stack;
 	i = 0;
 	while (i < list_size(*stack))
 	{
-		tmp2 = tmp;
-		tmp = tmp->next;
-		free(tmp2);
+		tmp = *stack;;
+		*stack = tmp->next;
+		free(tmp);
 		i++;
 	}
 }
@@ -42,6 +40,7 @@ char	*ok_ko(t_stack **a, t_stack **b)
 	{
 		if (tmp->number > tmp->next->number)
 			return ("KO");
+		tmp = tmp->next;
 		i++;
 	}
 	return ("OK");	
