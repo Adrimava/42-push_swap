@@ -6,7 +6,7 @@
 /*   By: amaza-va <amaza-va@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 17:59:11 by amaza-va          #+#    #+#             */
-/*   Updated: 2021/04/17 21:34:30 by amaza-va         ###   ########.fr       */
+/*   Updated: 2021/04/18 20:40:41 by amaza-va         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	ra_rb(t_stack **stack)
 	{
 		tmp = *stack;
 		*stack = (*stack)->next;
-		ft_lstadd_back(stack, tmp);
+		stack_add_back(stack, tmp);
 	}
 }
 

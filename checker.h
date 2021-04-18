@@ -6,7 +6,7 @@
 /*   By: amaza-va <amaza-va@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 18:17:36 by amaza-va          #+#    #+#             */
-/*   Updated: 2021/04/16 21:50:38 by amaza-va         ###   ########.fr       */
+/*   Updated: 2021/04/18 20:39:35 by amaza-va         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	stack_add_to_front(t_stack **alst, t_stack *new);
 void	print_list(t_stack *lst);
 int		list_size(t_stack *lst);
 t_stack	*ft_lstlast(t_stack *lst);
-void	ft_lstadd_back(t_stack **alst, t_stack *new);
+void	stack_add_back(t_stack **alst, t_stack *new);
 int		all_numbers_and_spaces(char *str);
 char	**param_validator(char *str);
 t_stack	*stack_init(int size,  char **params);
@@ -40,7 +40,7 @@ void	sa_sb(t_stack **stack);
 void	pa_pb(t_stack **to_be_taken, t_stack**to_be_added);
 void	ra_rb(t_stack **stack);
 void	rra_rrb(t_stack **stack);
-void	checker(t_stack *a);
+void	checker(int size,  char **params);
 void	result(t_stack **a, t_stack **b);
 void	free_list(t_stack **stack);
 
