@@ -6,7 +6,7 @@
 #    By: amaza-va <amaza-va@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/16 19:13:53 by amaza-va          #+#    #+#              #
-#    Updated: 2021/04/17 21:26:22 by amaza-va         ###   ########.fr        #
+#    Updated: 2021/04/19 18:50:06 by amaza-va         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,8 @@ SRCS =	array_utils.c			\
 		checker_stack_list2.c	\
 		checker_validator.c		\
 		checker_input.c			\
-		checker_result.c
+		checker_result.c		\
+		push_swap_sorting.c
 
 FLAGS = -Wall -Wextra -Werror 
 
@@ -38,15 +39,16 @@ SANITIZE= -fsanitize=address
 
 GCC = gcc
 
-all:
-	@make re -C ./libft
-	@$(GCC) $(FLAGS) $(CHECKER_SRCS) $(SRCS) $(GNL) $(LIBFT) -o checker
+all: checker pushswap
 
-checker: 
+checker: lib
 	@$(GCC) $(FLAGS) $(CHECKER_SRCS) $(SRCS) $(GNL) $(LIBFT) -o $@
 
-pushswap:
+pushswap: lib
 	@$(GCC) $(FLAGS) $(PUSHSWAP_SRCS) $(SRCS) $(GNL) $(LIBFT) -o $@
+
+lib:
+	@make re -C ./libft
 
 clean:
 	@rm -f $(CHECKER)

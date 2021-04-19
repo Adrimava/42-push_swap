@@ -6,7 +6,7 @@
 /*   By: amaza-va <amaza-va@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 17:59:11 by amaza-va          #+#    #+#             */
-/*   Updated: 2021/04/18 21:36:28 by amaza-va         ###   ########.fr       */
+/*   Updated: 2021/04/19 18:03:11 by amaza-va         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,20 +65,4 @@ t_stack	*stack_init(int size,  char **params)
 		return (NULL);
 	}
 	return (stack_filler(numbers_arr));
-}
-
-void	checker(int size,  char **params)
-{
-	t_stack	*a;
-	t_stack	*b;
-
-	a = stack_init(size, params);
-	b = NULL;
-	if (a)
-	{
-		checker_user_input(&a, &b);
-		result(&a, &b);
-	}
-	free_list(&a);
-	free_list(&b);
 }
