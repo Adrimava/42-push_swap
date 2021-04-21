@@ -17,40 +17,59 @@ int		is_sorted(t_stack **a)
 	return (1);	
 }
 
-int     minimum_number_position(t_stack **a)
+int     up_number_position(t_stack **a, int a_size, int min, int max)
 {
 	t_stack	*tmp;
-	int		min;
 	int		position;
-	int		i;
 
 	tmp = *a;
-	min = (*a)->number;
-	position = 1;
-	i = 1;
-	while (list_size(tmp) > 0)
+	position = 0;
+	while (position < a_size)
 	{
-	    if (min > (tmp)->number)
-	    {
-	        min = (tmp)->number;
-	        position = i;
-	    }
-		tmp = (tmp)->next;
-	    i++;
+	    if (min <= tmp->number && tmp->number <= max)
+		{
+	    	return (position);
+		}
+		tmp = tmp->next;
+	    position++;
 	}
 	return (position);
 }
 
-void	push_minimum_to_b(t_stack **a, t_stack **b)
+int     bottom_number_position(t_stack **a, int a_size, int min, int max)
 {
-	int	min_position;
+	t_stack	*tmp;
+	int		i;
+	int		position;
+
+	tmp = *a;
+	position = 0;
+	i = 0;
+	while (i < a_size)
+	{
+	    if (min <= tmp->number && tmp->number <= max)
+		{
+	    	position = i;
+		}
+		tmp = tmp->next;
+		i++;
+	}
+	return (position);
+}
+
+void	push_to_b(t_stack **a, t_stack **b, int min, int max)
+{
+	int	up_position;
+	int	bottom_position;
 	int	a_size;
 
 	a_size = list_size(*a);
-    min_position = minimum_number_position(a);
-    if (a_size - min_position > a_size / 2)
+    up_position = up_number_position(a, a_size, min, max);
+    bottom_position = a_size - bottom_number_position(a, a_size, min, max);
+	//printf("[%d]-[%d]\n", min, max);////////////////
+    if (up_position < bottom_position)
     {
-        while (min_position-- > 1)
+        while (up_position-- > 0)
         {
 			printf("ra\n");
 			ra_rb(a);
@@ -58,7 +77,7 @@ void	push_minimum_to_b(t_stack **a, t_stack **b)
     }
     else
     {
-		while (min_position++ <= a_size)
+		while (bottom_position-- > 0)
         {
 			printf("rra\n");
 			rra_rrb(a);
@@ -68,26 +87,29 @@ void	push_minimum_to_b(t_stack **a, t_stack **b)
 	pa_pb(a, b);
 }
 
-void	push_to_a(t_stack **a, t_stack **b)
+void    push_swap_sorter(t_stack **a, t_stack **b, int min, int max)
 {
-	if (list_size(*b) > 0)
-	{
-		printf("pa\n");
-		pa_pb(b, a);
-	}
-}
+	int	block;
+	int	block_size;
+	int	i;
 
-void    push_swap_sorter(t_stack **a, t_stack **b)
-{
-    while (*a)
+	block_size = ((max - min) / 10) + 1;
+	block = 0;
+    while (*a && block < 10)
     {
-		if (is_sorted(a))
-			break;
-		push_minimum_to_b(a, b);
+		i = 0;
+		while (i < block_size)
+		{
+			push_to_b(a, b, min * block * block_size + min, min * (block + 1) * block_size);
+			order_b(b);
+			i++;
+		}
+		block++;
 	}
 	while (*b)
 	{
+		order_b(b);
+		pa_pb(b, a);
 		printf("pa\n");
-		push_to_a(a, b);
 	}
 }

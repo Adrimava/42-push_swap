@@ -6,7 +6,7 @@
 #    By: amaza-va <amaza-va@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/04/16 19:13:53 by amaza-va          #+#    #+#              #
-#    Updated: 2021/04/19 20:19:53 by amaza-va         ###   ########.fr        #
+#    Updated: 2021/04/21 20:52:33 by amaza-va         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,8 @@ SRCS =	array_utils.c			\
 		checker_validator.c		\
 		checker_input.c			\
 		checker_result.c		\
-		push_swap_sorting.c
+		push_swap_sorting.c		\
+		push_swap_sorting_b.c
 
 FLAGS = -Wall -Wextra -Werror 
 

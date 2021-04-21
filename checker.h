@@ -6,7 +6,7 @@
 /*   By: amaza-va <amaza-va@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/12 18:17:36 by amaza-va          #+#    #+#             */
-/*   Updated: 2021/04/19 18:36:58 by amaza-va         ###   ########.fr       */
+/*   Updated: 2021/04/21 20:52:54 by amaza-va         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,8 @@ void	rra_rrb(t_stack **stack);
 void	result(t_stack **a, t_stack **b);
 void	free_list(t_stack **stack);
 
-void    push_swap_sorter(t_stack **a, t_stack **b);
+void    push_swap_sorter(t_stack **a, t_stack **b, int min, int max);
+void	order_b(t_stack **b);
 
 int     str_array_length(char **arr);
 void	free_array(char **arr);
