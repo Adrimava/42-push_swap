@@ -6,7 +6,7 @@
 /*   By: amaza-va <amaza-va@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/19 17:44:13 by amaza-va          #+#    #+#             */
-/*   Updated: 2021/04/19 18:52:11 by amaza-va         ###   ########.fr       */
+/*   Updated: 2021/04/21 18:17:23 by amaza-va         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void    push_swap(int size,  char **params)
 	if (a)
 	{
 		push_swap_sorter(&a, &b);
-		result(&a, &b);
 	}
 	free_list(&a);
 	free_list(&b);
