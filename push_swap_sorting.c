@@ -66,7 +66,6 @@ void	push_to_b(t_stack **a, t_stack **b, int min, int max)
 	a_size = list_size(*a);
     up_position = up_number_position(a, a_size, min, max);
     bottom_position = a_size - bottom_number_position(a, a_size, min, max);
-	//printf("[%d]-[%d]\n", min, max);////////////////
     if (up_position < bottom_position)
     {
         while (up_position-- > 0)
